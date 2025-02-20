@@ -13,7 +13,6 @@ load_dotenv()  # Load environment variables from .env file
 groq_api_token = os.getenv("GROQ_API_TOKEN")
 slack_api_token = os.getenv('SLACK_API_TOKEN')
 slack_signing_secret = os.getenv('SLACK_SIGNING_SECRET')
-slack_channel = os.getenv('SLACK_CHANNEL')
 flask_debug = os.getenv('FLASK_DEBUG') == 'True'
 
 # Check for missing environment variables and throw an exception if any are missing
@@ -23,8 +22,6 @@ if not slack_api_token:
     raise EnvironmentError("Missing environment variable: SLACK_API_TOKEN")
 if not slack_signing_secret:
     raise EnvironmentError("Missing environment variable: SLACK_SIGNING_SECRET")
-if not slack_channel:
-    raise EnvironmentError("Missing environment variable: SLACK_CHANNEL")
 
 ## Initialize the Flask app
 app = Flask(__name__)
